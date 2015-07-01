@@ -31,7 +31,8 @@ public class WindowMap {
 			WindowMapCreate();
 	}
 	
-	// private constructor:
+	// private constructor: responsible for creating and displaying the initial
+	// GUI of the program.
 	private void WindowMapCreate() {
 		JFrame window = new JFrame(); // the frame
 		window.setMinimumSize(new Dimension(300,190)); // set a minimum resize limit
@@ -116,7 +117,7 @@ public class WindowMap {
 	}
 	
 	
-	// method for calculating prime numbers:
+	// method for calculating prime numbers in the specified range:
 	public void calculate(){
 		int lowVal,highVal;
 		String answer = "";
@@ -130,28 +131,31 @@ public class WindowMap {
 		    return;
 		}
 	
-		// make sure lowVal is actually lower:
+		// make sure lowVal is actually the lower value:
 		if (lowVal > highVal) {
 			int temp = lowVal;
 			lowVal = highVal;
 			highVal = temp;
 		}	
-		// lowest possible value must be 2:
+		// for primes: lowest possible value must be 2:
 		if (lowVal < 2)
 			lowVal = 0;
 		if (highVal < 2) 
 			highVal = 0;
 		
-		// create a working array from 0 to highVal
+		// create a working boolean array from 0 to highVal
 		boolean[] all = new boolean[highVal+1];
 		for(int i = 2; i<=highVal;i++){
 			all[i] = true;
 		}
 		
-		// for each value in all:
+		// begin Sieve of Eratosthenes method:
+		// for each index in all:
 		for(int i=2;i*i<=highVal;i++) {
-			// if the value is still recorded as a prime
+			
 			if(all[i]) {
+				// if the value is still recorded as a prime (has 'true' value),
+				// then go through all its multiples and mark them 'false': they are not primes
 				// only do multiples up until we are past highVal
 				// and the first number whose square > highVal will skip the loop entirely
 				for (int j=i;i*j<=highVal;j++) 
@@ -166,12 +170,12 @@ public class WindowMap {
 		}
 		
 		
-		// print arraylist to a string
+		// print the remaining true indices to a string
 		for (int i =2;i<=highVal;i++) {
 		    if (all[i])
 		    	answer += i + " ";
 		}
-		answerT.setText(answer); // print answer string to text area.
+		answerT.setText(answer); // print answer string to the text area.
 	}
 	
 }
