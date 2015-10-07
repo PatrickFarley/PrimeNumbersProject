@@ -2,4 +2,8 @@ PrimeNumbers project:
 
 PrimeNumberExec.java contains the main method, instantiating the class WindowMap.
 
-WindowMap is responsible for creating the GUI for the program and for all further operations in this program. Taking a given range of integers from user input, the WindowMap objects finds and displays a list of all the prime numbers in the specified range. The object uses the Sieve of Eratosthenes method for finding primes.  
+WindowMap is responsible for creating the GUI for the program and for all further operations in this program. 
+Taking a given range of integers from user input, the WindowMap objects finds and displays a list of all the 
+prime numbers in the specified range. The object uses the Sieve of Eratosthenes method for finding primes.  
+
+NOTE: it is not at all ideal to handle all calculations and GUI operations in a single class.

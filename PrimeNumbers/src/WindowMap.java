@@ -14,7 +14,11 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-
+/**
+ * The WindowMap class is responsible for displaying a GUI window, checking user inputs, 
+ * calculating all prime numbers in the given range, and displaying them.
+ * @author Patrick D. Farley
+ */
 public class WindowMap {
 	
 	// these objects must belong to the class object itself
@@ -22,29 +26,23 @@ public class WindowMap {
 	JTextField highT;
 	JTextArea answerT;
 	JButton calc;
-	
-	
-	// make this class a singleton:
-	static int num = 0;
-	WindowMap() {
-		if (num==0)
-			WindowMapCreate();
-	}
-	
-	// private constructor: responsible for creating and displaying the initial
-	// GUI of the program.
-	private void WindowMapCreate() {
+
+
+	/**
+	 * Public constructor: responsible for creating and displaying the initial GUI of the program.
+	 */
+	public void WindowMapCreate() {
 		JFrame window = new JFrame(); // the frame
 		window.setMinimumSize(new Dimension(300,190)); // set a minimum resize limit
 		window.setLocationRelativeTo(null);
-		
+
 		JPanel top = new JPanel(); // panel to contain text and text fields
-		
+
 		JPanel directionsP = new JPanel(); // panel to contain directions
 		JLabel directionsL = new JLabel("Enter a range and click \"Find Prime Numbers\""); // app directions
 		directionsP.add(directionsL,BorderLayout.PAGE_START); // add directionsL to the top of its panel
 		directionsP.setBorder(new EmptyBorder(10,10,10,10)); // give a buffer of 10 units each side
-		
+
 		JPanel vals = new JPanel(); // panel to contain text fields
 		
 		JPanel highP = new JPanel(); // panel to contain high text field and its label
@@ -113,11 +111,12 @@ public class WindowMap {
 		window.setVisible(true);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // program quits on window close
 		
-		num++; // when an object has been constructed, update the counter
 	}
 	
 	
-	// method for calculating prime numbers in the specified range:
+	/**
+	 * method for calculating prime numbers in the specified range.
+	 */
 	public void calculate(){
 		int lowVal,highVal;
 		String answer = "";
